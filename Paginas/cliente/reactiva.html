@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/verifica.css">
+    <title>Verificar cuenta</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Verifica tu cuenta</h2>
+        <p>Te enviamos un código de cuatro dígitos a tu correo electrónico <br /> Ingresa el código para confirmar tu
+            correo electrónico.</p>
+        <form action="../../PHP/cliente/reactivar.php" method="post">
+        <div class="code-container">
+            <input name="primero" type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input name="segundo" type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input name="tercero" type="number" class="code" placeholder="0" min="0" max="9" required>
+            <input name="cuarto"  type="number" class="code" placeholder="0" min="0" max="9" required>
+        </div>
+        <div>
+            <input class="boton" type="submit" value="Verificar">
+        </div>
+        </form>
+    </div>
+    <script src="../../JS/verifica.js"></script>
+</body>
+
+</html>
