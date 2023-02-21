@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(/images/fondoIndex.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Orbitron", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #162d3d;
+  color: #efc938;
+  border: 3px #efc938 solid;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.code {
+  font-family: "Orbitron", sans-serif;
+  caret-color: transparent;
+  border-radius: 15px;
+  font-size: 75px;
+  height: 120px;
+  width: 100px;
+  border: 1px solid #efc938;
+  color: #efc938;
+  background-color: #162d3d;
+  margin: 1%;
+  text-align: center;
+  font-weight: 300;
+  -moz-appearance: textfield;
+}
+
+.code:focus{
+  border-color: #efc938;
+}
+
+.code::-webkit-outer-spin-button,
+.code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code:valid {
+  border-color: #efc938;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+}
+
+.boton {
+  font-family: "Orbitron", sans-serif;
+  background-color: #efc938;
+  color: #162d3d;
+  border: 3px #162d3d solid;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
