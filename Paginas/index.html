@@ -25,7 +25,7 @@
 
     <div id="menu" class="row">
 
-        <div class="col-md-4" id="iconoLogo"><a class="navbar-brand" href="#"><img src="/images/starhomes_logo.png"
+        <div class="col-md-4" id="iconoLogo"><a class="navbar-brand" href="index.html"><img src="/images/starhomes_logo.png"
                     alt="" width="70px" id="imagenLogoIcono"></a></div>
 
 
@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse rounded-pill px-5" id="enlacesInicio">
                     <ul class="navbar-nav fs-3" id="listaEnlaces">
                         <li class="nav-item px-4">
-                            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-earth-europe px-2"
+                            <a class="nav-link" aria-current="page" href="index.html"><i class="fa-solid fa-earth-europe px-2"
                                     id="tierra"></i>Inicio</a>
                         </li>
                         <li class="nav-item px-4">
@@ -57,19 +57,62 @@
                 <div class="modal-content">
 
                     <section class="border rounded login-dark"
-                        style="color: #efc938;--bs-light: #da0efb;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+                        style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+
                         <form class="font-monospace text-center" method="post"
-                            style="width: 299px;color: #efc938;--bs-light: #cd06ff;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
-                            <h2 class="visually-hidden">Login Form</h2>
+                            style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
+                            <legend>Login</legend>
+                            <br><br><br>
                             <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png"
                                     width="200"></div>
                             <div class="font-monospace mb-3"></div>
                             <div class="mb-3"><input class="form-control" type="email" name="Email" placeholder="Email"
                                     style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input
-                                    class="form-control" type="password" name="password" placeholder="Password"
+                                    class="form-control" type="password" name="password" placeholder="Contraseña"
                                     style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>
-                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit"
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit"
                                     style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Entrar</button>
+                                <input class="btn btn-primary d-block w-100 botonModal" data-bs-toggle="modal"
+                                    data-bs-target="#registro" value="Crear cuenta" type="button"
+                                    style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">
+                                </input>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL REGISTRO -->
+
+        <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <section class="border rounded login-dark"
+                        style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+                        <form class="font-monospace text-center" method="post"
+                            style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;">
+                            <legend>Registro</legend>
+                            <br><br><br>
+                            <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png"
+                                    width="200"></div>
+                            <div class="font-monospace mb-3"></div>
+                            <div class="mb-3"><input class="form-control" type="email" name="text" placeholder="Nombre"
+                                    style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input
+                                    class="form-control" type="text" name="text" placeholder="Apellidos"
+                                    style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input
+                                    class="form-control" type="email" name="Email" placeholder="Email"
+                                    style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input
+                                    class="form-control" type="password" name="password" placeholder="Contraseña"
+                                    style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit"
+                                    style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Registrar</button>
+                                <input class="btn btn-primary d-block w-100 botonModal" value="Volver al login"
+                                    type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">
+                                </input>
+
                             </div>
                         </form>
                     </section>
@@ -148,9 +191,9 @@
                 <div class="col-md-6">
                     <p>Información de contacto</p>
                     <ul>
-                        <li><i class="fa fa-map-marker"></i> Dirección: 1234 Calle Principal, Ciudad, País</li>
-                        <li><i class="fa fa-phone"></i> Teléfono: +1 234 567 890</li>
-                        <li><i class="fa fa-envelope"></i> Correo electrónico: info@ejemplo.com</li>
+                        <li><i class="fa fa-map-marker"></i> Dirección: 1234 Calle Principal, Jerez de la Fra., España</li>
+                        <li><i class="fa fa-phone"></i> Teléfono: +34 123 456 789</li>
+                        <li><i class="fa fa-envelope"></i> Correo electrónico: starhomes@gmail.com</li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -169,7 +212,7 @@
     </footer>
 
     <div>
-        <h5>Hecho con <i class="fa-solid fa-heart"></i> por:</h5>
+        <h5>Relizado con <i class="fa-solid fa-heart"></i> por:</h5>
         <h5>Aitor Mencaho Vega, Alberto Ortega García y Ramón Felicidade Verdú</h5>
     </div>
 

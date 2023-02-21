@@ -15,7 +15,6 @@ body {
 }
 
 #navBar {
-    background-color: blue;
     display: flex;
     justify-content: center;
     font-size: 15px;
@@ -270,14 +269,7 @@ div h5 {
     letter-spacing: 2px;
 }
 
-
-
 /*-----------------SCROLLBAR-------------- */
-
-
-/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
-
-
 
 body::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -306,8 +298,10 @@ body::-webkit-scrollbar-track {
     background: #162d3d;
 }
 
+/*-----------------SCROLLBAR-------------- */
+
 .login-dark {
-    height: 500px;
+    height: 700px;
     background: #162d3d;
     position: relative;
 }
@@ -323,7 +317,7 @@ body::-webkit-scrollbar-track {
     top: 50%;
     left: 50%;
     color: #efc938;
-    
+
 }
 
 .login-dark form .form-control {
@@ -337,7 +331,7 @@ body::-webkit-scrollbar-track {
 }
 
 .login-dark form .btn-primary {
-    background: #214a80;
+    background: #162d3d;
     border: none;
     border-radius: 4px;
     padding: 11px;
@@ -349,7 +343,7 @@ body::-webkit-scrollbar-track {
 
 .login-dark form .btn-primary:active,
 .login-dark form .btn-primary:hover {
-    background: #214a80;
+    background: #162d3d;
     outline: 0
 }
 
@@ -368,10 +362,12 @@ body::-webkit-scrollbar-track {
     text-decoration: none
 }
 
-.login-dark form .btn-primary:active {
-    transform: translateY(1px)
+.form-control::placeholder {
+    color: #efc938;
+    opacity: 30%;
 }
 
-.form-control::placeholder{
-    color: #efc938;
+legend{
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 5px;
 }
