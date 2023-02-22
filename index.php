@@ -29,7 +29,7 @@ $nombre = $_SESSION["nombre"];
 
     <div id="menu" class="row">
 
-        <div class="col-md-4" id="iconoLogo"><a class="navbar-brand" href="index.html"><img src="/images/starhomes_logo.png" alt="" width="70px" id="imagenLogoIcono"></a></div>
+        <div class="col-md-4" id="iconoLogo"><a class="navbar-brand" href="index.php"><img src="/images/starhomes_logo.png" alt="" width="70px" id="imagenLogoIcono"></a></div>
 
 
         <nav class="navbar navbar-expand-lg bg-transparent text-center col-md-4" id="navBar">
@@ -38,7 +38,7 @@ $nombre = $_SESSION["nombre"];
                 <div class="collapse navbar-collapse rounded-pill px-5" id="enlacesInicio">
                     <ul class="navbar-nav fs-3" id="listaEnlaces">
                         <li class="nav-item px-4">
-                            <a class="nav-link" aria-current="page" href="index.html"><i class="fa-solid fa-earth-europe px-2" id="tierra"></i>Inicio</a>
+                            <a class="nav-link" aria-current="page" href="index.php"><i class="fa-solid fa-earth-europe px-2" id="tierra"></i>Inicio</a>
                         </li>
                         <li class="nav-item px-4">
                             <a class="nav-link" href="#"><i class="fa-solid fa-shuttle-space px-2" id="nave"></i>Planetas</a>
