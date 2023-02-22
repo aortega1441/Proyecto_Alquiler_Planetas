@@ -185,7 +185,7 @@ $email = $_SESSION["email"];
             </div>
         </div>
 
-        
+
     <?php
 
     } else {
@@ -202,10 +202,9 @@ $email = $_SESSION["email"];
                             <legend>Perfil</legend>
                             <br><br><br>
                             <div class="illustration"><i class="fa-solid fa-user-astronaut" style="width: 200px;"></div>
-                            <div class="font-monospace mb-3"></div>
                             <div class="mb-3">
-                                <h3>Hola, <?php $nombre ?></h3>
-                                <h4><?php $email ?></h4>
+                                <h3>Hola, <?php echo $nombre ?></h3>
+                                <h4><?php echo $email ?></h4>
                             </div>
                             <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Logout</button>
                                 <input class="btn btn-primary d-block w-100 botonModal" value="Volver al login" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">
