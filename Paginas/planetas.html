@@ -1,0 +1,159 @@
+<!-- <?php
+
+session_start();
+$nombre = $_SESSION["nombre"];
+$email = $_SESSION["email"];
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/planetas.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>StarHomes</title>
+
+    <script>
+
+        window.onload = ini
+
+        function ini(){
+            document.getElementById("buscaPlanetas").addEventListener("keyup", buscarPlaneta);
+        }
+
+        function buscarPlaneta() {
+
+            var name = document.getElementById("buscaPlanetas");
+            var planetasInfo = document.getElementById("planetasInfo");
+
+            planetasInfo.innerHTML = "";
+            
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/planets?name=' + name.value,
+                headers: { 'X-Api-Key': 'nCRnIcIOcowWRGKbceSJPA==SlJ7wQETIwo85LHm' },
+                contentType: 'application/json',
+                success: function (result) {
+                    
+                    console.log(result);
+
+                    result.forEach(element => {
+                        
+                        var div = document.createElement("div");
+                        div.className = "planeta";
+                        div.innerHTML = element.name;
+                        planetasInfo.appendChild(div);
+
+                    });
+
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText);
+                }
+            });
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div id="menu" class="row">
+
+        <div class="col-md-4" id="iconoLogo"><a class="navbar-brand" href="index.php"><img
+                    src="/images/starhomes_logo.png" alt="" width="70px" id="imagenLogoIcono"></a></div>
+
+
+        <nav class="navbar navbar-expand-lg bg-transparent text-center col-md-4" id="navBar">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse rounded-pill px-5" id="enlacesInicio">
+                    <ul class="navbar-nav fs-3" id="listaEnlaces">
+                        <li class="nav-item px-4">
+                            <a class="nav-link" aria-current="page" href="index.php"><i
+                                    class="fa-solid fa-earth-europe px-2" id="tierra"></i>Inicio</a>
+                        </li>
+                        <li class="nav-item px-4">
+                            <a class="nav-link" href="/Paginas/planetas.php"><i class="fa-solid fa-shuttle-space px-2"
+                                    id="nave"></i>Planetas</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-4" id="iconoLogin"><a class="navbar-brand" href="#" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"><i class="fa-solid fa-user-astronaut" id="astronauta"></i></a>
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <!-- PLANETAS -->
+    <div class="buscador">
+        <h1>¿Que planeta quieres visitar hoy?</h1>
+        <input type="text" name="planeta" id="buscaPlanetas" placeholder="Busca el planeta" value="" />
+    </div>
+    <div id="planetasInfo"></div>
+    <!-- PLANETAS -->
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Información de contacto</p>
+                    <ul>
+                        <li><i class="fa fa-map-marker"></i> Dirección: 1234 Calle Principal, Jerez de la Fra., España
+                        </li>
+                        <li><i class="fa fa-phone"></i> Teléfono: +34 123 456 789</li>
+                        <li><i class="fa fa-envelope"></i> Correo electrónico: info@starhomes.rocks</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <p>Síguenos en redes sociales</p>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i>@StarHome</a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i>@StarHome</a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i>@starhome</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </footer>
+
+    <div>
+        <h5>Relizado con <i class="fa-solid fa-heart"></i> por:</h5>
+        <h5>Aitor Mencaho Vega, Alberto Ortega García y Ramón Felicidade Verdú</h5>
+    </div>
+
+    <!-- FOOTER -->
+
+</body>
+
+</html>
