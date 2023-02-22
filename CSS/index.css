@@ -269,6 +269,100 @@ div h5 {
     letter-spacing: 2px;
 }
 
+/*------------------MODAL-------------------*/
+.bienvenido{
+    height: 500px;
+    background: #162d3d;
+    position: relative;
+}
+
+.bienvenido .relleno {
+    max-width: 320px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #efc938;
+    text-align: center;
+}
+
+#naveModal {
+    animation: shake 0.7s;
+    animation-iteration-count: infinite;
+    font-size: 200px;
+    margin-bottom: 15%;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(-90deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-91deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(-91deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(-90deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(-91deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-91deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(-90deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-91deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(-91deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(-90deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-91deg);
+    }
+}
+
+.falloLogin{
+    height: 500px;
+    background: #162d3d;
+    position: relative;
+}
+
+.falloLogin .relleno {
+    max-width: 420px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #efc938;
+    text-align: center;
+}
+
+/*------------------MODAL-------------------*/
+
 /*-----------------SCROLLBAR-------------- */
 
 body::-webkit-scrollbar {
