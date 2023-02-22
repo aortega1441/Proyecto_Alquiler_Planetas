@@ -203,7 +203,38 @@ $nombre = $_SESSION["nombre"];
 
     <?php
 
-    if ($_REQUEST["iniciado"] == true) {
+    if ($_REQUEST["error"]) {
+
+    ?>
+
+        <script>
+            $(document).ready(function() {
+                $('#modalFalloLogin').modal('toggle')
+            });
+        </script>
+
+        <div class="modal fade" id="modalFalloLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+
+                        <form action="PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
+
+                            <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>
+                            <div class="font-monospace mb-3"></div>
+                            <div class="mb-3">
+                                <h2>Las credenciales no se corresponden con ningún usuario registrado</h2>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    <?php
+
+    } else if ($_REQUEST["iniciado"] == true) {
 
     ?>
 
