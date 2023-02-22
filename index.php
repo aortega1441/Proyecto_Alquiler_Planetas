@@ -157,6 +157,8 @@ $email = $_SESSION["email"];
 
     <!-- NOTIFICACIONES DE REGISTRO, LOGIN, ETC -->
 
+    <!-- MODAL LOGIN -->
+
     <?php
 
     if ($nombre == null || empty($nombre)) {
@@ -220,6 +222,8 @@ $email = $_SESSION["email"];
 
     ?>
 
+    <!-- MODAL LOGIN -->
+
     <!-- MODAL REGISTRO -->
 
     <div class="modal fade" id="registro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
@@ -244,6 +248,10 @@ $email = $_SESSION["email"];
         </div>
     </div>
 
+    <!-- MODAL REGISTRO -->
+
+    <!-- MODALES ERRORLOGIN & BIENVENIDO -->
+
     <?php
 
     if ($_REQUEST["error"]) {
@@ -266,6 +274,36 @@ $email = $_SESSION["email"];
                             <div class="font-monospace mb-3"></div>
                             <div class="mb-3">
                                 <h2>Las credenciales no se corresponden con ningún usuario registrado</h2>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    <?php
+
+    } else if ($_REQUEST["bloqueo"]) {
+
+    ?>
+
+        <script>
+            $(document).ready(function() {
+                $('#modalBloqueado').modal('toggle')
+            });
+        </script>
+
+        <div class="modal fade" id="modalBloqueado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <section class="border rounded falloLogin" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+                        <div class="relleno">
+                            <div class="illustration"><i class="fa-solid fa-lock" style="font-size: 200px; margin-bottom: 15%;"></i></div>
+                            <div class="font-monospace mb-3"></div>
+                            <div class="mb-3">
+                                <h2>Tu cuenta ha sido bloqueada</h2>
+                                <h4>Te hemos enviado un correo con instrucciones para desbloquearla</h4>
                             </div>
                         </div>
                     </section>
@@ -308,6 +346,8 @@ $email = $_SESSION["email"];
     }
 
     ?>
+
+    <!-- MODALES ERRORLOGIN & BIENVENIDO -->
 
     <!-- NOTIFICACIONES DE REGISTRO, LOGIN, ETC -->
 
