@@ -69,7 +69,7 @@ while ($res = mysqli_fetch_array($resultado)) {
                 $mail->Port = 587;
                 $mail->SMTPAuth = true;
                 $mail->Username = 'info@starhomes.rocks';
-                $mail->Password = 'Trebu!ena23';
+                $mail->Password = '*******';
                 $mail->setFrom('info@starhomes.rocks', 'Reactivación de cuenta');
                 $mail->addReplyTo('info@starhomes.rocks', 'starhomes.rocks');
                 $mail->addAddress($email, $nombre);
