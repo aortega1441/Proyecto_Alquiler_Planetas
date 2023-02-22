@@ -6,7 +6,7 @@ $nombre = $_SESSION["nombre"];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@ $nombre = $_SESSION["nombre"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/CSS/index.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -217,16 +218,14 @@ $nombre = $_SESSION["nombre"];
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
-
-                        <form action="PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
-
+                    <section class="border rounded falloLogin" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+                        <div class="relleno">
                             <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>
                             <div class="font-monospace mb-3"></div>
                             <div class="mb-3">
                                 <h2>Las credenciales no se corresponden con ningún usuario registrado</h2>
                             </div>
-                        </form>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -248,15 +247,14 @@ $nombre = $_SESSION["nombre"];
             <div class="modal-dialog">
                 <div class="modal-content">
 
-                    <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
-
-                        <form action="PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
-
-                            <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>
+                    <section class="border rounded bienvenido" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+                        <div class="relleno">
+                            <div class="illustration"><i class="fa-solid fa-shuttle-space px-2" id="naveModal"></i></div>
                             <div class="font-monospace mb-3"></div>
                             <div class="mb-3">
                                 <h1>BIENVENIDO <?php echo $nombre ?></h1>
                             </div>
+                        </div>
                         </form>
                     </section>
                 </div>
