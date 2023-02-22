@@ -4,7 +4,7 @@
 use \PHPMailer\PHPMailer\PHPMailer;
 
 // * Nos conectamos a la base de datos
-include("conexion/db.php");
+include("../conexion/db.php");
 
 // * Guardamos los datos en variables
 $nombre    = $_REQUEST['nombre'];
@@ -23,7 +23,7 @@ $resultado = mysqli_query($conexion, $consulta) or die("Error al ejecutar la con
 if (mysqli_num_rows($resultado) > 0) {
 
     // * Si el usuario existe, redirigimos al usuario al inicio
-    header("Location: ../../index.html?existe=true");
+    header("Location: ../../index.php?existe=true");
 
 } else {
 
@@ -44,14 +44,15 @@ if (mysqli_num_rows($resultado) > 0) {
     $mail->Port = 587;
     $mail->SMTPAuth = true;
     $mail->Username = 'info@starhomes.rocks';
-    $mail->Password = 'starhomes123';
+    $mail->Password = '*******';
     $mail->setFrom('info@starhomes.rocks', 'Activación cuenta en SmartHomes');
     $mail->addReplyTo('info@starhomes.rocks', 'starhomes.rocks');
     $mail->addAddress($email, $nombre);
     $mail->Subject = 'Activación cuenta en SmartHomes';
     $mail->IsHTML(true);
     $mail->Charset = 'UTF-8';
-    $mail->Body = "Hola $nombre, gracias por registrarte en SmartHomes. Para activar tu cuenta, haz click en el siguiente enlace: <a href='http://starhomes.rocks/PHP/cliente/activar.php?email=$email'>Activar cuenta</a>";
+    //$mail->Mailer = "smtp";
+    $mail->Body = "Hola $nombre, gracias por registrarte en SmartHomes. Para activar tu cuenta, haz click en el siguiente enlace: <a href='https://starhomes.rocks/PHP/cliente/activar.php?email=$email'>Activar cuenta</a>";
 
     if (!$mail->send()) {
         
@@ -60,7 +61,7 @@ if (mysqli_num_rows($resultado) > 0) {
 
     } else {
 
-        header("Location: ../../index.html?registrado=true");
+        header("Location: ../../index.php?registrado=true");
         die();
 
     }
