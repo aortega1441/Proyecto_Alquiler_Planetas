@@ -220,7 +220,7 @@ $nombre = $_SESSION["nombre"];
 
                     <section class="border rounded falloLogin" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
                         <div class="relleno">
-                            <div class="illustration"><i class="fa-regular fa-explosion" style="width: 200px;"></i></div>
+                            <div class="illustration"><i class="fa-regular fa-explosion" style="width: 200px;"></div>
                             <div class="font-monospace mb-3"></div>
                             <div class="mb-3">
                                 <h2>Las credenciales no se corresponden con ningún usuario registrado</h2>
