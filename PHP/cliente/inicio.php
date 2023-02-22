@@ -4,7 +4,7 @@
 use \PHPMailer\PHPMailer\PHPMailer;
 
 // * Nos conectamos a la base de datos
-include("conexion/db.php");
+include("../conexion/db.php");
 
 // * Guardamos los datos en variables
 $email    = $_REQUEST['Email'];
@@ -13,19 +13,22 @@ $fecha    = date("Y-m-d");
 
 // * Consulta para verificar si el usuario existe
 $consulta = "SELECT * FROM clientes WHERE email = '$email'";
+$usuario = "SELECT * FROM clientes WHERE email = '$email'";
 
 // * Ejecutamos la consulta
 $resultado = mysqli_query($conexion, $consulta) or die("Error al ejecutar la consulta: " . mysqli_error($conexion));
+$existe = mysqli_query($conexion, $usuario) or die("Error al ejecutar la consulta: " . mysqli_error($conexion));
 
 // * Verificamos si el usuario existe
-while ($res = mysqli_fetch_array($resultado)) {
+if( mysqli_fetch_row($existe) > 0){
 
+while ($res = mysqli_fetch_array($resultado)) {
     // * Guardamos su nombre en una variable
     $nombre = $res['nombre'];
 
     // * Comprobamos si el usuario está bloqueado.
     if (!$res['bloqueo']) {
-
+        
         // * Si no está bloqueado, comprobamos si la contraseña es correcta
         if (password_verify($password, $res['password'])) {
 
@@ -40,7 +43,8 @@ while ($res = mysqli_fetch_array($resultado)) {
             $_SESSION['email']  = $email;
 
             // * Redirigimos al usuario a la página de inicio
-            header("Location: ../../index.html?iniciado=true");
+            header("Location: ../../index.php?iniciado=true");
+            
         } else {
 
             // * Si la contraseña es incorrecta, aumentamos los intentos de inicio de sesión
@@ -61,17 +65,18 @@ while ($res = mysqli_fetch_array($resultado)) {
                 require '../../vendor/autoload.php';
                 $mail = new PHPMailer;
                 $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
+                $mail->Host = 'smtp.hostinger.com';
+                $mail->Port = 587;
                 $mail->SMTPAuth = true;
                 $mail->Username = 'info@starhomes.rocks';
-                $mail->Password = 'starhomes123';
+                $mail->Password = 'Trebu!ena23';
                 $mail->setFrom('info@starhomes.rocks', 'Reactivación de cuenta');
                 $mail->addReplyTo('info@starhomes.rocks', 'starhomes.rocks');
                 $mail->addAddress($email, $nombre);
                 $mail->Subject = 'Reactivación de cuenta';
                 $mail->IsHTML(true);
                 $mail->Charset = 'UTF-8';
-                $mail->Body = "Hola $nombre, has intentado iniciar sesión en starhomes.rocks con una contraseña incorrecta varías veces. <br> Para reactivar tu cuenta, introduce el siguiente código <a href='starhomes.works/paginas/cliente/reactiva.html'>aquí</a>: $token";
+                $mail->Body = "Hola $nombre, has intentado iniciar sesión en starhomes.rocks con una contraseña incorrecta varías veces. <br> Para reactivar tu cuenta, introduce el siguiente código <a href='https://starhomes.rocks/Paginas/cliente/reactiva.php?email=$email'>aquí</a>: $token";
 
                 if (!$mail->send()) {
                     
@@ -80,7 +85,7 @@ while ($res = mysqli_fetch_array($resultado)) {
                     
                 } else {
                     
-                    header("Location: ../../index.html?error=usuarioBloqueado");
+                    header("Location: ../../index.php?error=usuarioBloqueado");
                     die();
                 
                 }
@@ -88,11 +93,17 @@ while ($res = mysqli_fetch_array($resultado)) {
             }
 
             // * Si la contraseña es incorrecta, redirigimos al usuario a la página de inicio
-            header("Location: ../../index.html?iniciado=false");
+            header("Location: ../../index.php?error=credenciales");
         }
     } else {
 
         // * Si el usuario está bloqueado, redirigimos al usuario a la página de inicio
-        header("Location: ../../index.html?error=usuarioBloqueado");
+        header("Location: ../../index.php?error=usuarioBloqueado");
     }
 }
+
+} else {
+    header("Location: ../../index.php?error=credenciales");
+}
+
+?>
