@@ -59,7 +59,7 @@ $idCliente = $_SESSION["idCliente"];
                 },
                 contentType: 'application/json',
                 success: function(resultadoPlanetas) {
-                    
+
                     resultadoPlanetas.forEach((element, index) => {
 
                         var valor = Math.floor(1000 + Math.random() * 9000);
@@ -75,29 +75,51 @@ $idCliente = $_SESSION["idCliente"];
 
                     });
 
-                    <?php 
-                    
-                    if( $idCliente == ''){
-                    
+                    <?php
+
+                    if ($idCliente == '') {
+
                     ?>
-                        
-                        
-                        
+
+                        document.innerHTML += `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">`
+                        document.innerHTML += `<div class="modal-dialog">`
+                        document.innerHTML += `<div class="modal-content">`
+
+                        document.innerHTML += `<section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">`
+
+                        document.innerHTML += `<form action="../PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">`
+                        document.innerHTML += `<legend>Login</legend>`
+                        document.innerHTML += `<br><br><br>`
+                        document.innerHTML += `<div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>`
+                        document.innerHTML += `<div class="font-monospace mb-3"></div>`
+                        document.innerHTML += ` <div class="mb-3"><input class="form-control" type="email" name="Email" placeholder="Email" style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input class="form-control" type="password" name="password" placeholder="Contraseña" style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>`
+                        document.innerHTML += `<div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Entrar</button>`
+                        document.innerHTML += `<input class="btn btn-primary d-block w-100 botonModal" data-bs-toggle="modal" data-bs-target="#registro" value="Crear cuenta" type="button" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">`
+                        document.innerHTML += `</input>`
+                        document.innerHTML += `</div>`
+                        document.innerHTML += `</form>`
+                        document.innerHTML += `</section>`
+                        document.innerHTML += `</div>`
+                        document.innerHTML += `</div>`
+                        document.innerHTML += `</div>`
+
+                    <?php
+
                     } else {
-                    
+
                     ?>
-                    
-                    // Obtener los botones y agregar el evento click
-                    var buttons = document.querySelectorAll(".btn.alquila");
-                    buttons.forEach(button => {
-                        button.addEventListener("click", async function() {
 
-                            var planeta = document.createElement("div");
-                            var planetId = this.getAttribute("data-id");
-                            var precio = this.getAttribute("data-precio");
-                            var planetName = resultadoPlanetas[planetId].name;
+                        // Obtener los botones y agregar el evento click
+                        var buttons = document.querySelectorAll(".btn.alquila");
+                        buttons.forEach(button => {
+                            button.addEventListener("click", async function() {
 
-                            await Swal.fire({
+                                var planeta = document.createElement("div");
+                                var planetId = this.getAttribute("data-id");
+                                var precio = this.getAttribute("data-precio");
+                                var planetName = resultadoPlanetas[planetId].name;
+
+                                await Swal.fire({
 
                                     title: `<span style="color: #efc938">Alquilar ${planetName}</span>`,
                                     html: `<span style="font-weight: bold; color: #efc938">Precio por noche: ${precio} €</span> 
@@ -151,14 +173,14 @@ $idCliente = $_SESSION["idCliente"];
 
 
                                 }).then((willDelete) => {
-                                    
-                                    console.log(willDelete.value)
-                                    
-                                    if (willDelete.value) {
-                                        
-                                        const fechaIda = document.getElementById("fechaIda").value
-                                        const fechaVuelta = document.getElementById("fechaVuelta").value
-                                        const personas = document.getElementById("personas").value
+
+                                        console.log(willDelete.value)
+
+                                        if (willDelete.value) {
+
+                                            const fechaIda = document.getElementById("fechaIda").value
+                                            const fechaVuelta = document.getElementById("fechaVuelta").value
+                                            const personas = document.getElementById("personas").value
 
                                             $.ajax({
                                                 method: 'POST',
@@ -171,9 +193,9 @@ $idCliente = $_SESSION["idCliente"];
                                                     precio: precio
                                                 },
                                                 success: function(result) {
-                                                    
+
                                                     if (result == "ok") {
-                                                        
+
                                                         Swal.fire({
                                                             title: '<span style="color: #efc938">¡Alquilado!</span>',
                                                             text: 'El planeta se ha alquilado correctamente',
@@ -184,34 +206,34 @@ $idCliente = $_SESSION["idCliente"];
                                                                 window.location.href = "index.php";
                                                             }
                                                         })
-                                                        
-                                                    } else if( result == "pasada" ) {
-                                                        
+
+                                                    } else if (result == "pasada") {
+
                                                         Swal.fire({
                                                             title: '<span style="color: #efc938">Oooh...</span>',
                                                             text: 'Parece que estás cogiendo una fecha que ya ha pasado.',
                                                             confirmButtonColor: '#efc938',
                                                             background: '#162d3d',
                                                         })
-                                                    
-                                                    } else if( result == "cogido" ){
-                                                        
+
+                                                    } else if (result == "cogido") {
+
                                                         Swal.fire({
                                                             title: '<span style="color: #efc938">vaya...</span>',
                                                             text: 'Parece se han adelantado y ya no están disponibles.',
                                                             confirmButtonColor: '#efc938',
                                                             background: '#162d3d',
                                                         })
-                                                        
+
                                                     } else {
-                                                        
+
                                                         Swal.fire({
                                                             title: '<span style="color: #efc938">Oops...</span>',
                                                             text: 'Rellene los campos correctamente o te la mamas.',
                                                             confirmButtonColor: '#efc938',
                                                             background: '#162d3d',
                                                         })
-                                                        
+
                                                     }
                                                 },
                                                 error: function ajaxError(jqXHR) {
@@ -222,18 +244,18 @@ $idCliente = $_SESSION["idCliente"];
                                         }
                                     }
 
-                                    
+
                                 )
 
-                            document.body.appendChild(planeta);
+                                document.body.appendChild(planeta);
+
+                            });
 
                         });
 
-                    });
-
-                <?php
+                    <?php
                     }
-                ?>
+                    ?>
 
                 },
                 error: function ajaxError(jqXHR) {
