@@ -77,31 +77,11 @@ $idCliente = $_SESSION["idCliente"];
 
                     <?php
 
-                    if ($idCliente == '') {
-
+                    if ( $idCliente == '' || $idCliente == null ) {
+                        
                     ?>
-
-                        document.innerHTML += `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">`
-                        document.innerHTML += `<div class="modal-dialog">`
-                        document.innerHTML += `<div class="modal-content">`
-
-                        document.innerHTML += `<section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">`
-
-                        document.innerHTML += `<form action="../PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">`
-                        document.innerHTML += `<legend>Login</legend>`
-                        document.innerHTML += `<br><br><br>`
-                        document.innerHTML += `<div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>`
-                        document.innerHTML += `<div class="font-monospace mb-3"></div>`
-                        document.innerHTML += ` <div class="mb-3"><input class="form-control" type="email" name="Email" placeholder="Email" style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input class="form-control" type="password" name="password" placeholder="Contraseña" style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>`
-                        document.innerHTML += `<div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Entrar</button>`
-                        document.innerHTML += `<input class="btn btn-primary d-block w-100 botonModal" data-bs-toggle="modal" data-bs-target="#registro" value="Crear cuenta" type="button" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">`
-                        document.innerHTML += `</input>`
-                        document.innerHTML += `</div>`
-                        document.innerHTML += `</form>`
-                        document.innerHTML += `</section>`
-                        document.innerHTML += `</div>`
-                        document.innerHTML += `</div>`
-                        document.innerHTML += `</div>`
+                        
+                        $("#exampleModal").modal("show");
 
                     <?php
 
@@ -338,27 +318,72 @@ $idCliente = $_SESSION["idCliente"];
 
     </footer>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <!-- MODAL LOGIN -->
 
-                <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+    <?php
 
-                    <form action="../PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
-                        <legend>Login</legend>
-                        <br><br><br>
-                        <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>
-                        <div class="font-monospace mb-3"></div>
-                        <div class="mb-3"><input class="form-control" type="email" name="Email" placeholder="Email" style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input class="form-control" type="password" name="password" placeholder="Contraseña" style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>
-                        <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Entrar</button>
-                            <input class="btn btn-primary d-block w-100 botonModal" data-bs-toggle="modal" data-bs-target="#registro" value="Crear cuenta" type="button" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">
-                            </input>
-                        </div>
-                    </form>
-                </section>
+    if ($nombre == null || empty($nombre)) {
+
+    ?>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+
+                        <form action="../PHP/cliente/inicio.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
+                            <legend>Login</legend>
+                            <br><br><br>
+                            <div class="illustration"><img class="img-fluid slow-spin" src="/images/starhomes_logo.png" width="200"></div>
+                            <div class="font-monospace mb-3"></div>
+                            <div class="mb-3"><input class="form-control" type="email" name="Email" placeholder="Email" style="font-family: Orbitron, sans-serif;border-color: #efc938;"><input class="form-control" type="password" name="password" placeholder="Contraseña" style="font-family: Orbitron, sans-serif;border-color: #efc938;"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Entrar</button>
+                                <input class="btn btn-primary d-block w-100 botonModal" data-bs-toggle="modal" data-bs-target="#registro" value="Crear cuenta" type="button" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">
+                                </input>
+                            </div>
+                        </form>
+                    </section>
+                </div>
             </div>
         </div>
-    </div>
+
+
+    <?php
+
+    } else {
+
+    ?>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <section class="border rounded login-dark" style="color: #efc938;--bs-light-rgb: 218,14,251;border-bottom-color: rgb(230,229,222);">
+
+                        <form action="../PHP/conexion/cierraSesion.php" class="font-monospace text-center" method="post" style="width: 299px;color: #efc938;--bs-light-rgb: 205,6,255;background: #162d3d;border-radius: 35px;border-top-left-radius: 44px;border-color: rgb(195,182,55);border-bottom-width: 51px;border-bottom-color: rgb(24,127,231);">
+                            <legend>Perfil</legend>
+                            <br><br><br>
+                            <div class="illustration"><i class="fa-solid fa-user-astronaut" style="font-size: 200px; margin-bottom: 15%;"></i></div>
+                            <div class="mb-3">
+                                <h3>Hola, <?php echo $nombre ?></h3>
+                            </div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100 botonModal" type="submit" style="font-family: Orbitron, sans-serif;background: #efc938;border-radius: 25px;border-color: var(--bs-yellow);border-top-color: var(--bs-blue);border-right-color: var(--bs-blue);border-bottom: 51px initial rgb(255, 193, 7);border-left-color: rgb(255, 193, 7);color: #162d3d;">Logout</button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+    <?php
+
+    }
+
+    ?>
+
+    <!-- MODAL LOGIN -->
 
     <div>
         <h5>Relizado con <i class="fa-solid fa-heart"></i> por:</h5>
